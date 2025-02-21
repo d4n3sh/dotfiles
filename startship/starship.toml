@@ -1,0 +1,16 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# This is the starship configuration file.
+
+# All configuration options can be found at https://starship.rs/config/
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character]
+success_symbol = "[➜](bold green)"
+
+# Set user name alias for "danesh.manoharan" to 🥷
+[username]
+show_always = true
+[username.aliases]
+"danesh.manoharan" = "🥷"
