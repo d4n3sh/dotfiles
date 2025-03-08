@@ -105,6 +105,7 @@
     vim # Text editor
     wget
     git
+    lazygit
     ncdu
     firefox # Web browser
     vivaldi # Web browser
