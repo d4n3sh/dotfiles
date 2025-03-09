@@ -118,6 +118,7 @@
     noto-fonts-emoji # Fonts
     noto-fonts-cjk-sans # Fonts
     google-cloud-sdk # Google Cloud cli tools
+    nvtop # Top for GPU
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
