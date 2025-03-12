@@ -119,6 +119,10 @@
     noto-fonts-cjk-sans # Fonts
     google-cloud-sdk # Google Cloud cli tools
     nvtop # Top for GPU
+    tree
+    nix-top
+    nix-tree
+    nix-du
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
