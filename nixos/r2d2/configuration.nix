@@ -91,9 +91,22 @@
     isNormalUser = true;
     description = "Danesh Manoharan";
     extraGroups = [ "networkmanager" "wheel" "danesh"];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
     ];
+  };
+
+  # Install and configure zsh
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      update = "nixos-rebuild switch --use-remote-sudo";
+    };
+    histSize = 10000;
   };
 
   # Install firefox.
@@ -127,6 +140,9 @@
     nix-tree
     nix-du
     oh-my-posh # Prompt
+    gnome-tweaks
+    fzf
+    zoxide # cd tool
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
