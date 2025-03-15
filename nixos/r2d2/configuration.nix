@@ -123,6 +123,7 @@
     nix-top
     nix-tree
     nix-du
+    oh-my-posh # Prompt
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
