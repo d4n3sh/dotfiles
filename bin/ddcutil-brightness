@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Adjust brightness on all DDC-capable monitors.
+# Usage: ddcutil-brightness <+5|-5>
+
+step="${1:-+5}"
+buses=(6 7 8 9)
+
+# Get current brightness from first monitor
+current=$(ddcutil --bus "${buses[0]}" getvcp 10 2>/dev/null | grep -oP 'current value =\s*\K[0-9]+')
+if [[ -z "$current" ]]; then
+  exit 1
+fi
+
+# Calculate new brightness
+new=$((current + step))
+if [[ $new -lt 0 ]]; then new=0; fi
+if [[ $new -gt 100 ]]; then new=100; fi
+
+# Apply to all monitors in parallel
+for bus in "${buses[@]}"; do
+  ddcutil --bus "$bus" setvcp 10 "$new" &
+done
+wait
+
+# Show OSD
+omarchy-swayosd-brightness "$new"
